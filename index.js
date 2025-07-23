@@ -57,7 +57,7 @@ app.use(AuthRoute);
 app.use(PaymentRoute);
 app.use(AdminRoute);
 app.use(rulesRoute);
-// store.sync();
+store.sync();
 
 cron.schedule("0 0 1 * *", createMonthlyBills);
 // createMonthlyBills();
