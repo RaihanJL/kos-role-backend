@@ -29,13 +29,14 @@ const store = new sessionStore({
 // })();
 
 app.use(
-  session({
+  Session({
     secret: process.env.SESS_SECRET,
     resave: false,
     saveUninitialized: true,
     store: store,
     cookie: {
-      secure: "auto", // Set to true if using HTTPS
+      secure: true,
+      sameSite: "none",
     },
   })
 );
