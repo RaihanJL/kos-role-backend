@@ -66,4 +66,9 @@ app.listen(process.env.APP_PORT, () => {
   console.log(`Server is running...`);
 });
 
+app.use((err, req, res, next) => {
+  console.error("DETAIL ERROR:", err);
+  res.status(500).json({ message: err.message });
+});
+
 export default app;
