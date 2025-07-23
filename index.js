@@ -22,7 +22,7 @@ const store = new sessionStore({
   db: db,
 });
 
-// db.sync({alter: true})
+db.sync({alter: true})
 
 // (async () => {
 //   await db.sync();
