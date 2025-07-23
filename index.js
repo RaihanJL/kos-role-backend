@@ -45,7 +45,7 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://192.168.185.29:3000",
-      "https://macramewebsite.vercel.app/",
+      "https://kos-role-frontend.vercel.app/",
     ],
     credentials: true,
   })
