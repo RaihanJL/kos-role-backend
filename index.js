@@ -17,6 +17,8 @@ dotenv.config();
 
 const app = express();
 
+app.set('trust proxy', 1);
+
 const sessionStore = SequelizeStore(session.Store);
 const store = new sessionStore({
   db: db,
