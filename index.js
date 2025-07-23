@@ -42,7 +42,11 @@ app.use(
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://192.168.185.29:3000"],
+    origin: [
+      "http://localhost:3000",
+      "http://192.168.185.29:3000",
+      "https://macramewebsite.vercel.app/",
+    ],
     credentials: true,
   })
 );
