@@ -29,7 +29,7 @@ const store = new sessionStore({
 // })();
 
 app.use(
-  Session({
+  session({
     secret: process.env.SESS_SECRET,
     resave: false,
     saveUninitialized: true,
