@@ -29,6 +29,18 @@ const store = new sessionStore({
 // })();
 
 app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "http://192.168.185.29:3000",
+      "https://kos-role-frontend.vercel.app"
+    ],
+    credentials: true,
+  })
+);
+
+
+app.use(
   session({
     secret: process.env.SESS_SECRET,
     resave: false,
@@ -37,21 +49,11 @@ app.use(
     cookie: {
       secure: true,
       sameSite: "none",
-      maxAge: 24 * 60 * 60 * 1000 // 1 hari, opsional
+      maxAge: 24 * 60 * 60 * 1000
     },
   })
 );
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "http://192.168.185.29:3000",
-      "https://kos-role-frontend.vercel.app",
-    ],
-    credentials: true,
-  })
-);
 app.use(express.json());
 app.use(express.static("public"));
 app.use(UserRoute);
