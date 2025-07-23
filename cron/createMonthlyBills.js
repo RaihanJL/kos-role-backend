@@ -9,11 +9,11 @@ export const createMonthlyBills = async () => {
 
   // === SET JATUH TEMPO MANUAL UNTUK TESTING ===
   // Setelah testing, hapus/comment baris ini
-  // const dueDate = new Date(now.getFullYear(), now.getMonth(), 5); // default
-  const TEST_DUE_DATE = "2025-07-22"; 
-  const dueDate = TEST_DUE_DATE
-    ? new Date(TEST_DUE_DATE)
-    : new Date(now.getFullYear(), now.getMonth(), 5);
+  const dueDate = new Date(now.getFullYear(), now.getMonth(), 5); // default
+  // const TEST_DUE_DATE = "2025-07-22"; 
+  // const dueDate = TEST_DUE_DATE
+  //   ? new Date(TEST_DUE_DATE)
+  //   : new Date(now.getFullYear(), now.getMonth(), 5);
   for (const user of users) {
     const existing = await Payments.findOne({
       where: { userId: user.id, dueDate: dueDate },
