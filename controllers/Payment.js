@@ -99,7 +99,7 @@ export const getAllPayments = async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ["name", "email", "roomType", "roomPrice", "roomNumber","proof"],
+          attributes: ["name", "email", "roomType", "roomPrice", "roomNumber"],
         },
       ],
       order: [["createdAt", "DESC"]],
