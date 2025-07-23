@@ -1,0 +1,159 @@
+// Create a User
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Nadif",
+    "email": "nadiffebriansyah48@gmail.com",
+    "password": "kontolodon",
+    "confPassword": "kontolodon",
+    "role": "user"
+}
+
+###
+// Get all Users
+GET http://localhost:5000/users
+###
+
+//GET single user
+GET http://localhost:5000/users/26d76209-d785-4a74-8010-98b28de76509
+
+###
+//UPDATE USER
+PATCH http://localhost:5000/users/26d76209-d785-4a74-8010-98b28de76509
+Content-Type: application/json
+
+{
+    "name": "John Update",
+    "email": "John@gmail.com",
+    "password": "",
+    "confPassword": "",
+    "role": "user"
+}
+
+###
+//DELETE USER
+
+DELETE http://localhost:5000/users/046d0320-1283-43a2-a3c7-54abcef55ab3
+
+###
+//LOGIN USER
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "raihanlaban0@gmail.com",
+    "password": "123"
+}
+
+###
+//LOGIN Admin
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "12345678"
+}
+
+
+###
+
+GET http://localhost:5000/me
+
+###
+
+DELETE http://localhost:5000/logout
+
+###
+// Get All products
+GET http://localhost:5000/products
+
+###
+//Post Data products
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "name": "Product 6",
+    "price": "9975"
+}
+
+###
+// Get single product
+GET http://localhost:5000/products/cf07a083-523e-4240-9929-5b65df2709a4
+
+###
+//Update Product
+PATCH http://localhost:5000/products/3e06fd8b-cde2-4212-a7e4-abaa90db459c
+Content-Type: application/json
+
+{
+    "name": "Product 6 Updated",
+    "price": "6000"
+}
+
+###
+//Delete Product
+DELETE http://localhost:5000/products/cf07a083-523e-4240-9929-5b65df2709a4
+
+###
+POST http://localhost:5000/payments
+Content-Type: application/json
+
+{
+    "amount": 2000000,
+    "description": "Bayar kos"
+}
+
+###
+// Get User Payments
+GET http://localhost:5000/payments
+
+###
+// Get All Payments
+GET http://localhost:5000/payments/admin
+
+###
+// Validate Payment
+PATCH http://localhost:5000/payments/7a529548-9383-48a8-9017-257e9a144756
+Content-Type: application/json
+
+{
+    "status": "rejected"
+}
+
+###
+//rules
+###
+// Set default rules
+PUT http://localhost:5000/rules
+Content-Type: application/json
+
+{
+  "content": "🏠 Peraturan Umum Kos-Kosan [Nama Kos]\nAlamat: [Masukkan alamat lengkap kos]\n\n1. Jam Operasional dan Tamu\n- Jam malam maksimal untuk penghuni: 23.00 WIB\n- Tamu hanya diperbolehkan berkunjung sampai pukul 21.00 WIB\n- Tamu lawan jenis tidak diperkenankan masuk ke dalam kamar\n- Setiap tamu harus lapor terlebih dahulu kepada pemilik/pengelola kos\n\n2. Pembayaran dan Administrasi\n- Pembayaran kos dilakukan paling lambat tanggal 10 setiap bulannya\n- Keterlambatan dikenakan denda sebesar Rp50.000/minggu\n- Uang sewa yang sudah dibayarkan tidak dapat dikembalikan\n- Penghuni wajib menyerahkan fotokopi KTP saat awal masuk\n\n3. Kebersihan dan Kerapian\n- Setiap penghuni bertanggung jawab atas kebersihan kamar masing-masing\n- Dilarang membuang sampah sembarangan\n- Penghuni wajib menjaga kebersihan kamar mandi bersama (jika ada)\n- Dilarang menjemur pakaian di area yang tidak diperbolehkan (misalnya balkon depan)\n\n4. Keamanan dan Ketertiban\n- Kunci gerbang akan dikunci pada pukul 23.00 WIB\n- Dilarang menyimpan atau menggunakan senjata tajam, narkoba, atau barang ilegal lainnya\n- Tidak diperkenankan membuat keributan (musik keras, teriak-teriak, dll)\n- Penghuni wajib menjaga barang pribadinya masing-masing\n\n5. Peralatan dan Fasilitas\n- Tidak diperkenankan memasang alat listrik berdaya tinggi tanpa izin (kompor listrik, rice cooker besar, AC tambahan, dll)\n- Fasilitas umum harus digunakan secara bijak dan tidak dirusak\n- Jika ada kerusakan fasilitas, harap segera melapor kepada pemilik\n\n6. Ketentuan Tambahan\n- Dilarang membawa hewan peliharaan tanpa izin\n- Dilarang melakukan aktivitas usaha (jualan, warung, dsb) tanpa seizin pemilik\n- Apabila penghuni melanggar aturan berat, pemilik berhak untuk mengeluarkan penghuni tanpa pengembalian uang sewa\n\nDengan menempati kos ini, berarti Anda telah membaca dan menyetujui semua peraturan di atas.\n\n[Nama Pemilik Kos]\nNo. HP/WA: [Masukkan nomor kontak]"
+}
+
+### Membuat pembayaran dueDate besok (H-1)
+POST http://localhost:5000/payments
+Content-Type: application/json
+
+{
+    "amount": 1600000,
+    "description": "Test H-1",
+    "dueDate": "2025-06-18"
+}
+
+### Membuat pembayaran dueDate kemarin (H+1)
+POST http://localhost:5000/payments
+Content-Type: application/json
+
+{
+    "amount": 1600000,
+    "description": "Test H+1",
+    "dueDate": "2024-06-16"
+}
+
+###
+GET http://localhost:5000/users/11/arrears
