@@ -133,4 +133,4 @@ const sendReminders = async () => {
   }
 };
 
-cron.schedule("* * * * *", sendReminders); // Setiap menit untuk testing, ubah ke "0 7 * * *" untuk produksi
+cron.schedule("0 7 * * *", sendReminders); // Setiap menit untuk testing, ubah ke "0 7 * * *" untuk produksi
