@@ -1,7 +1,8 @@
 import { Sequelize } from "sequelize";
 
-const db = new Sequelize('kos_role_db','root','',{
-    host: 'localhost',
+const db = new Sequelize('railway', 'root', 'BkWHpxSDNeluPQXVbQbHTmvQKykarfdR', {
+    host: 'switchback.proxy.rlwy.net',
+    port: 53790,
     dialect: 'mysql',
 });
 
